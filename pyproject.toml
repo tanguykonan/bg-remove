@@ -1,0 +1,22 @@
+[project]
+name = "bgrm"
+version = "1.0.0"
+description = "A CLI tool to image processing."
+authors = [
+    { name = "github.com/tanguykonan" }
+]
+dependencies = [
+    "pillow",
+    "rembg",
+    "onnxruntime"
+]
+
+[project.scripts]
+bgrm = "bgrm:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["bgrm"]
