@@ -1,31 +1,19 @@
-"""========================= 
-*** Author : github.com/tanguykonan
-****** Name : bgrm
-********* Version : 1.0.0
-************ Description : A CLI tool to image processing.
-=================================================================
-"""
+import os
+import logging
+import argparse
+from rembg import remove
+from PIL import Image
+from datetime import datetime
 
-try:
-    import os
-    import logging
-    import argparse
-    from rembg import remove
-    from PIL import Image
-    from datetime import datetime
-except Exception as error:
-    print(f"[IMPORT ERROR]: {error}")
 
-try:
-    base_dir = os.path.dirname(__file__)
-    logs_dir = os.path.join(base_dir, "logs")
-    logs_file = os.path.join(logs_dir, "bgrm.log")
+base_dir = os.path.dirname(__file__)
+logs_dir = os.path.join(base_dir, "logs")
+logs_file = os.path.join(logs_dir, "bgrm.log")
 
-    os.makedirs(logs_dir, exist_ok = True)
-    if not os.path.exists(logs_file):
+os.makedirs(logs_dir, exist_ok = True)
+if not os.path.exists(logs_file):
         open(logs_file, "w").close()
-except Exception as error:
-    print(f"[LOGS-PATH CREATION ERROR]: {error}")
+
 
 try:
     logger = logging.getLogger('bgrm')
